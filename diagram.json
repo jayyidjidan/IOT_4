@@ -1,0 +1,38 @@
+{
+    "version": 1,
+    "author": "JAYYID JIDAN",
+    "editor": "wokwi",
+    "parts": [
+      { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 19.2, "left": -71.96, "attrs": {} },
+      { "type": "wokwi-dht22", "id": "dht1", "top": -162.9, "left": -63, "attrs": {} },
+      {
+        "type": "wokwi-photoresistor-sensor",
+        "id": "ldr1",
+        "top": 185.6,
+        "left": -277.6,
+        "attrs": {}
+      },
+      {
+        "type": "wokwi-lcd2004",
+        "id": "lcd1",
+        "top": -60.8,
+        "left": 101.6,
+        "attrs": { "pins": "i2c" }
+      }
+    ],
+    "connections": [
+      [ "esp:TX", "$serialMonitor:RX", "", [] ],
+      [ "esp:RX", "$serialMonitor:TX", "", [] ],
+      [ "dht1:VCC", "esp:3V3", "red", [ "h-19.2", "v48", "h-0.15" ] ],
+      [ "dht1:GND", "esp:GND.2", "black", [ "h48", "v96" ] ],
+      [ "dht1:SDA", "esp:14", "green", [ "h-57.5", "v201.6" ] ],
+      [ "ldr1:VCC", "esp:3V3", "blue", [ "v-48", "h19.2", "v-105.6" ] ],
+      [ "ldr1:GND", "esp:GND.2", "white", [ "h9.6", "v28.4", "h144", "v-192" ] ],
+      [ "ldr1:AO", "esp:34", "gold", [ "h19.2", "v-144.7" ] ],
+      [ "lcd1:SDA", "esp:21", "gray", [ "h-38.4", "v105.8" ] ],
+      [ "lcd1:SCL", "esp:22", "#8f4814", [ "h-28.8", "v67.5" ] ],
+      [ "lcd1:GND", "esp:GND.2", "cyan", [ "h0" ] ],
+      [ "lcd1:VCC", "esp:3V3", "red", [ "h0" ] ]
+    ],
+    "dependencies": {}
+  }
